@@ -1,11 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import MainGame from "./components/MainGame";
+import Marquee from "./components/Marquee";
+import PopUps from "./components/PopUps";
+
+import SideButtons from "./components/SideButtons";
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      {/* <Marquee /> */}
+      {/* <SideButtons /> */}
+      {/* <PopUps /> */}
+      <MainGame />
+    </>
   );
 }
 
