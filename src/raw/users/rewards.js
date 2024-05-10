@@ -60,7 +60,7 @@ import unSelectedTile_03_Left from "../../Header/Unselected/3-right.png";
 import unSelectedTile_04_Left from "../../Header/Unselected/4-right.png";
 import unSelectedTile_05_Left from "../../Header/Unselected/5-right.png";
 import unSelectedTile_06_Left from "../../Header/Unselected/6-right.png";
-import unSelectedTile_07_Left from "../../Header/Unselected/7-right.pngj";
+import unSelectedTile_07_Left from "../../Header/Unselected/7-right.png";
 import unSelectedTile_08_Left from "../../Header/Unselected/8-right.png";
 import unSelectedTile_09_Left from "../../Header/Unselected/9 right.png";
 import unSelectedTile_10_Left from "../../Header/Unselected/10 right.png";
