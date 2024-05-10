@@ -1,7 +1,7 @@
 import React from "react";
-import jump_btn from "../assests/Jump-button.gif";
-import auto from "../assests/auto-btn.png";
-import manual from "../assests/manual-btn.png";
+import jump_btn from "../Header/Jump-button.gif";
+import auto from "../Header/Auto-button.png";
+import manual from "../Header/Manual-button.png";
 
 export default function Controller({
   combo,

@@ -3,8 +3,8 @@ import Controller from "./Controller";
 import Game from "./Game";
 import { UserContext } from "../context/UserContext";
 import mascot_front from "../Header/Front-position.gif";
-import fallMascot from "../Header/";
-import pointer from "../Tile-Rest-assests/oops.gif";
+import fallMascot from "../Tile-Rest-assests/oops.gif";
+import pointer from "../Tile-Rest-assests/oops.gif";  // this need to change
 import { postCallApi } from "../utilities/api";
 import { checkShowData } from "../utilities/helper";
 
