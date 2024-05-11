@@ -12,6 +12,7 @@ import leftJump from "../Header/left-jump.gif";
 import rightJump from "../Header/right-jump.gif";
 import { moscotPosition } from "../raw/users/rewards";
 import { RankContext } from "../context/RankContext";
+import '../css/Game.css';
 
 export default function MainGame() {
   const { user, userInfo, userRefresh, updateRecodRefresh, changeAlertPopUp } =

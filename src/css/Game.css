@@ -1,0 +1,143 @@
+.response {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: calc(5 * var(--view));
+}
+
+.response-heading {
+    display: block;
+    font-size: calc(36 * var(--view));
+    line-height: calc(36 * var(--view));
+    font-weight: bold;
+    color: #412825;
+}
+
+.response-text {
+    display: block;
+    color: #523734;
+    text-align: center;
+    font-size: calc(30 * var(--view));
+    line-height: calc(32 * var(--view));
+    font-family: font;
+    font-weight: bold;
+}
+
+.response-text-break {
+    display: block;
+    margin: calc(10 * var(--view)) 0;
+}
+
+.response-text-break-icon {
+    width: calc(48 * var(--view));
+    height: calc(48 * var(--view));
+    object-fit: contain;
+    display: inline;
+    vertical-align: middle;
+}
+
+.response-text-break-text {
+    font-family: font;
+    font-weight: bold;
+    font-size: calc(26 * var(--view));
+    line-height: calc(26 * var(--view));
+    padding-top: calc(7 * var(--view));
+    padding-left: calc(5 * var(--view));
+}
+
+.response-score {
+    display: inline-block;
+    vertical-align: middle;
+    height: calc(48 * var(--view));
+    padding-left: calc(20 * var(--view));
+    line-height: calc(50 * var(--view));
+    font-size: calc(36 * var(--view));
+    font-family: font;
+    font-weight: bold;
+    color: blue;
+    /* Assuming $SecondaryColor is defined elsewhere */
+}
+
+.response-text-icon {
+    display: inline;
+    padding-bottom: calc(3 * var(--view));
+    width: calc(44 * var(--view));
+    height: calc(44 * var(--view));
+    object-fit: contain;
+    vertical-align: middle;
+}
+
+.response-fancy {
+    font-family: font;
+    font-weight: bold;
+    background: #523730;
+    padding: calc(15 * var(--view));
+    border-radius: calc(12 * var(--view));
+    margin: calc(10 * var(--view)) 0;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(260 * var(--view));
+    color: #523734;
+    width: calc(300 * var(--view));
+    font-size: calc(28 * var(--view));
+    line-height: calc(36 * var(--view));
+}
+
+.chances {
+  min-width: calcView(200);
+  height: calcView(80);
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  padding-bottom: calcView(4);
+  padding-right: calcView(30);
+  color: yellow;
+  white-space: pre;
+  position: absolute;
+  top: calcView(120);
+  left: 50%;
+  transform: translateX(-50%);
+  @include background(center, 100% 100%, "chances.png");
+}
+
+.tile-pos {
+  z-index: 2;
+  width: calcView(120);
+  height: calcView(120);
+  @include background(center, contain, "tilesPosition.png");
+  position: absolute;
+  top: calcView(210);
+  right: calcView(11);
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding-bottom: calcView(6);
+  color: yellow;
+  font-size: calcView(22);
+}
+
+.firstTap {
+  position: absolute;
+  top: calcView(1000);
+  z-index: 1;
+  width: calcView(150);
+}
+
+.toast {
+  z-index: 99;
+  position: fixed;
+  bottom: calcView(20);
+  left: 50%;
+  font-size: calcView(24);
+  font-family: font2;
+  background: #0000009a;
+  white-space: pre;
+  padding: calcView(10) calcView(20);
+  border-radius: calcView(8);
+  transform: translateX(-50%);
+}
