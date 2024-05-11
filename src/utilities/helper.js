@@ -1,5 +1,5 @@
-import unknown from "../assests/unknown.png";
-import RewardSlider2 from "../components/carousel/RewardSlider2";
+import unknown from "../Tile-Rest-assests/default.png";
+// import RewardSlider2 from "../components/carousel/RewardSlider2";
 import { rewGet } from "./imageContext";
 
 import { baseURL } from "./URL";
@@ -175,24 +175,25 @@ export const checkShowData = (data, clas) => {
 
   if (data.length > 2) {
     return (
-      <RewardSlider2 smallSlider Infinite>
-        {nestdata.map((x) => {
-          return (
-            <span className={clas}>
-              {x?.map((d, i) => {
-                return (
-                  <span key={i} className={`${clas}-data`}>
-                    <img src={rewGet(d?.desc)} />
-                    <span className="color-primary">
-                      {xtra(d?.desc, d?.count)}
-                    </span>
-                  </span>
-                );
-              })}
-            </span>
-          );
-        })}
-      </RewardSlider2>
+      // <RewardSlider2 smallSlider Infinite>
+      //   {nestdata.map((x) => {
+      //     return (
+      //       <span className={clas}>
+      //         {x?.map((d, i) => {
+      //           return (
+      //             <span key={i} className={`${clas}-data`}>
+      //               <img src={rewGet(d?.desc)} />
+      //               <span className="color-primary">
+      //                 {xtra(d?.desc, d?.count)}
+      //               </span>
+      //             </span>
+      //           );
+      //         })}
+      //       </span>
+      //     );
+      //   })}
+      // </RewardSlider2>
+      <h1>Reward slide has been commented....</h1>
     );
   } else {
     return (

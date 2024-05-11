@@ -1,4 +1,4 @@
-import beanpot from "../../assests/beanspot.png";
+import beanpot from "../../Header/Beans pot.png";
 
 //Selected LEFT
 import selectedTile_01_Left from "../../Header/Selected/1-left.png";

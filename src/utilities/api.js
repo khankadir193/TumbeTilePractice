@@ -1,14 +1,14 @@
 import { baseURL } from "./URL";
 
-import user_Information from "../raw/apis/userInfo.json";
-import user_record from "../raw/apis/userRecord.json";
-import user_detail from "../raw/apis/userDetail.json";
+import user_Information from "./userInfo.json";
+// import user_record from "../raw/apis/userRecord.json";
+// import user_detail from "../raw/apis/userDetail.json";
 
-import user_Rank from "../raw/apis/rank/userRank.json";
-import talent_Rank from "../raw/apis/rank/talentRank.json";
-import user_Rank_one from "../raw/apis/rank/tabOneRank.json";
-import user_Rank_two from "../raw/apis/rank/tabTwoRank.json";
-import user_Rank_three from "../raw/apis/rank/tabThreeRank.json";
+// import user_Rank from "../raw/apis/rank/userRank.json";
+// import talent_Rank from "../raw/apis/rank/talentRank.json";
+// import user_Rank_one from "../raw/apis/rank/tabOneRank.json";
+// import user_Rank_two from "../raw/apis/rank/tabTwoRank.json";
+// import user_Rank_three from "../raw/apis/rank/tabThreeRank.json";
 
 import { drawGame, wheelGame } from "./helper";
 
@@ -20,27 +20,27 @@ export const getCallApi = async (key, whatData, myHeaders) => {
     case "USERINFO":
       data = user_Information;
       break;
-    case "USERRECORD":
-      data = user_record;
-      break;
-    case "USERDETAIL":
-      data = user_detail;
-      break;
-    case "USERRANK":
-      data = user_Rank;
-      break;
-    case "TALENTRANK":
-      data = talent_Rank;
-      break;
-    case "TABONERANK":
-      data = user_Rank_one;
-      break;
-    case "TABTWORANK":
-      data = user_Rank_two;
-      break;
-    case "TABTHREERANK":
-      data = user_Rank_three;
-      break;
+    // case "USERRECORD":
+    //   data = user_record;
+    //   break;
+    // case "USERDETAIL":
+    //   data = user_detail;
+    //   break;
+    // case "USERRANK":
+    //   data = user_Rank;
+    //   break;
+    // case "TALENTRANK":
+    //   data = talent_Rank;
+    //   break;
+    // case "TABONERANK":
+    //   data = user_Rank_one;
+    //   break;
+    // case "TABTWORANK":
+    //   data = user_Rank_two;
+    //   break;
+    // case "TABTHREERANK":
+    //   data = user_Rank_three;
+    //   break;
   }
   if (enviroment === 1) {
     return data;
