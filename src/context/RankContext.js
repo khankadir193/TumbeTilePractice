@@ -4,7 +4,7 @@ import { UserContext } from "./UserContext";
 
 const RankContext = createContext();
 function RankProvider({ children }) {
-  const { user } = useContext(UserContext);
+  // const { user } = useContext(UserContext) || {};
   const cd = new Date();
   // Get the previous day
   const pd = new Date(cd);

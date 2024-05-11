@@ -15,8 +15,8 @@ import { RankContext } from "../context/RankContext";
 
 export default function MainGame() {
   const { user, userInfo, userRefresh, updateRecodRefresh, changeAlertPopUp } =
-    useContext(UserContext);
-  const { tickerTapRefresh } = useContext(RankContext);
+    useContext(UserContext) || {};
+  const { tickerTapRefresh } = useContext(RankContext) || {};
   //Controller States
   let num = parseInt(userInfo?.location?.split("_")[0]) || 0;
   let loc = userInfo?.location?.split("_")[1] || "R";
