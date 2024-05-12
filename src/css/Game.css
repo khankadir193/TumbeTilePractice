@@ -171,10 +171,12 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: calc(680 * var(--view));
+  height: auto;
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  /* margin-top: 9.5rem; */
+  top: 10rem;
 }
 
 .maingame .tiles-tile {
@@ -246,8 +248,8 @@
   width: calc(300 * var(--view));
   height: calc(300 * var(--view));
   object-fit: contain;
-  left: 50%;
-  bottom: calc(-150 * var(--view));
+  left: 50% !important;
+  bottom: -66vw !important;
   transform: translateX(-50%);
 }
 
@@ -360,4 +362,86 @@
 .maingame .fall {
   transform: translate(-50%, 90%);
   opacity: 0;
+}
+
+/* controller css design */
+.controller {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controller .check {
+  width: 90%;
+  margin-top: 10rem;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controller .check .chances-board {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  /* background: url("../Header/Chances-to-play.png") center/no-repeat; */
+  background: url('../Header/Chances-to-play.png');
+  background-size: 100% 100%;
+  width: 30%;
+  height: 6vh;
+}
+
+.controller .check .chances-board input {
+  color: white;
+  width: 50%;
+  height: 4vh;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  outline: none;
+  border: none;
+  user-select: none;
+}
+
+.controller .check .gear-board {
+  width: 35%;
+  height: 11vh;
+  display: flex;
+  /* background: url("gear-board.png") center/contain; */
+  background: url('../Header/manual-auto-slider-bg.png');
+  background-size: 100% 100%;
+  align-items: center;
+}
+
+.controller .check .gear-board img {
+  width: 54%;
+  height: 8vh;
+  transition: all 0.1s ease;
+}
+
+.controller .check .gear-board .left {
+  /* margin-top: 3rem; */
+  margin-left: 2.5rem;
+}
+
+.controller .check .gear-board .right {
+  /* margin-top: 2rem; */
+  /* margin-left: 2rem; */
+}
+
+.controller .jump-btn {
+  z-index: 3;
+  margin-top: 2rem;
+  width: 40%;
+  height: 4vh;
+  filter: grayscale(0);
+}
+
+.controller .unactive {
+  filter: grayscale(1);
 }

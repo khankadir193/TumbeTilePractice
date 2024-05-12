@@ -2,6 +2,7 @@ import React from "react";
 import jump_btn from "../Header/Jump-button.gif";
 import auto from "../Header/Auto-button.png";
 import manual from "../Header/Manual-button.png";
+import '../css/Game.css'
 
 export default function Controller({
   combo,
