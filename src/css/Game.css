@@ -141,3 +141,212 @@
   border-radius: calcView(8);
   transform: translateX(-50%);
 }
+
+
+
+
+/* main css class selector */
+
+.maingame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  height: calc(1151 * var(--view));
+}
+
+.maingame .tiles {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: calc(680 * var(--view));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.maingame .tiles-tile {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.maingame .tiles-tile-single {
+  display: flex;
+  position: relative;
+}
+
+.maingame .tiles-tile-single img {
+  width: calc(455 * var(--view));
+  height: calc(195 * var(--view));
+}
+
+.maingame .tiles-tile .broken-tile {
+  position: absolute;
+  width: calc(451 * var(--view));
+  height: calc(451 * var(--view));
+  bottom: calc(-285 * var(--view));
+}
+
+.maingame .tiles-tile .broken-tile-2 {
+  position: absolute;
+  width: calc(335 * var(--view));
+  height: calc(325 * var(--view));
+  bottom: calc(-235 * var(--view));
+}
+
+.maingame .tiles-tile .tile-right {
+  right: calc(-20 * var(--view));
+}
+
+.maingame .tiles-tile .tile-left {
+  left: calc(-20 * var(--view));
+  transform: scaleX(-1);
+}
+
+.maingame .tiles .finish-line {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100vw;
+  height: calc(66 * var(--view));
+  transform: translateX(-50%);
+  opacity: 0.7;
+  z-index: 7;
+}
+
+.maingame .tiles .from-start {
+  top: 0%;
+  width: 25vw;
+  height: calc(14 * var(--view));
+}
+
+.maingame .absolute {
+  position: absolute;
+  z-index: 9;
+  opacity: 0;
+}
+
+.maingame .mascot {
+  z-index: 8;
+  position: absolute;
+  width: calc(300 * var(--view));
+  height: calc(300 * var(--view));
+  object-fit: contain;
+  left: 50%;
+  bottom: calc(-150 * var(--view));
+  transform: translateX(-50%);
+}
+
+.maingame .mascot-1,
+.maingame .mascot-2,
+.maingame .mascot-3,
+.maingame .mascot-4,
+.maingame .mascot-5,
+.maingame .mascot-6,
+.maingame .mascot-7,
+.maingame .mascot-8,
+.maingame .mascot-9,
+.maingame .mascot-10,
+.maingame .mascot-11,
+.maingame .mascot-12,
+.maingame .mascot-13,
+.maingame .mascot-14,
+.maingame .mascot-15,
+.maingame .mascot-16,
+.maingame .mascot-17,
+.maingame .mascot-18 {
+  left: 70%;
+  bottom: calc(50 * var(--view));
+}
+
+.maingame .mascot-19 {
+  left: 68%;
+  bottom: calc(180 * var(--view));
+}
+
+.maingame .mascot-20 {
+  left: 65%;
+  bottom: calc(280 * var(--view));
+}
+
+.maingame .mascot-21 {
+  left: 62%;
+  bottom: calc(360 * var(--view));
+}
+
+.maingame .mascot-22 {
+  left: 60%;
+  bottom: calc(430 * var(--view));
+}
+
+.maingame .mascot-23 {
+  left: 58%;
+  bottom: calc(490 * var(--view));
+}
+
+.maingame .mascot-24 {
+  left: 57%;
+  bottom: calc(530 * var(--view));
+}
+
+.maingame .mascot-25 {
+  left: 56%;
+  bottom: calc(570 * var(--view));
+}
+
+.maingame .mascot-26 {
+  left: 50%;
+  bottom: calc(600 * var(--view));
+}
+
+.maingame .isLeft {
+  left: 30%;
+}
+
+.maingame .isLeft-19 {
+  left: 30%;
+  bottom: calc(180 * var(--view));
+}
+
+.maingame .isLeft-20 {
+  left: 32%;
+  bottom: calc(280 * var(--view));
+}
+
+.maingame .isLeft-21 {
+  left: 36%;
+  bottom: calc(360 * var(--view));
+}
+
+.maingame .isLeft-22 {
+  left: 38%;
+  bottom: calc(430 * var(--view));
+}
+
+.maingame .isLeft-23 {
+  left: 40%;
+  bottom: calc(490 * var(--view));
+}
+
+.maingame .isLeft-24 {
+  left: 41%;
+  bottom: calc(530 * var(--view));
+}
+
+.maingame .isLeft-25 {
+  left: 42%;
+  bottom: calc(570 * var(--view));
+}
+
+.maingame .isLeft-26 {
+  left: 42%;
+  bottom: calc(600 * var(--view));
+}
+
+.maingame .fall {
+  transform: translate(-50%, 90%);
+  opacity: 0;
+}

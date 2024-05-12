@@ -53,7 +53,7 @@ export default function Game({
         handleLeftRight={handleLeftRight}
         calculateWidthAndHeight={calculateWidthAndHeight}
       />
-      <Tiles
+      {/* <Tiles
         absolute
         currentTile={currentTile}
         newArray={newArray}
@@ -61,7 +61,7 @@ export default function Game({
         broken={broken}
         handleLeftRight={handleLeftRight}
         calculateWidthAndHeight={calculateWidthAndHeight}
-      />
+      /> */}
       <img
         // style={{
         //   left: `${60}vw`,
