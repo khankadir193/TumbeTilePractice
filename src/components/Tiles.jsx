@@ -1,7 +1,6 @@
 import React from "react";
 import broken_tile from "../Header/wrong-tile-end.gif";
 import finish_tile from "../Header/finish-bundle.gif";
-import '../css/Game.css'
 export default function Tiles({
   absolute,
   currentTile,
