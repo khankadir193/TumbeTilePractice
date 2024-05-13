@@ -1,75 +1,76 @@
 import React, { createContext, useEffect, useState } from "react";
-
 import { getCallApi } from "../utilities/api";
 import { bodyFixes } from "../utilities/helper";
 
 const UserContext = createContext();
+
 function UserProvider({ children }) {
+  // State variables
   const [refresh, setRefresh] = useState(false);
   const [loading, setLoading] = useState(false);
   const [language, setLanguage] = useState("English");
-
-  const changeLanguage = (language) => {
-    setLanguage(language);
-  };
-  const userRefresh = () => {
-    setRefresh(!refresh);
-  };
-
-  const [alert, setAlert] = useState({
-    show: false,
-    message: "",
-    head: null,
-  });
+  const [alert, setAlert] = useState({ show: false, message: "", head: null });
   const [detailPopUp, setDetailPopUp] = useState({
     show: false,
     message: "",
     head: null,
   });
-
   const [guide, setGuide] = useState(false);
   const [leaderboard, setLeaderBoard] = useState(false);
-
   const [userInfo, setUserInfo] = useState([]);
-
-  const [user, setUser] = useState({
-    uid: 0,
-    token: undefined,
-  });
+  const [user, setUser] = useState({ uid: 0, token: undefined });
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [recordIndex, setRecordIndex] = useState(1);
+  const [records, setRecords] = useState([]);
+  const [recordRefresh, setRecordRefresh] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+
+  // Helper functions
+  const changeLanguage = (language) => setLanguage(language);
+
+  const userRefresh = () => setRefresh(!refresh);
 
   const changeAlertPopUp = (show, message, head) => {
     bodyFixes(false, scrollPosition, setScrollPosition);
     setAlert({ show: show, message: message, head: head });
   };
+
   const closeAlertPopUp = () => {
     bodyFixes(true, scrollPosition, setScrollPosition);
     setAlert({ show: false, message: "", head: null });
   };
+
   const changeGuidePopUp = () => {
     bodyFixes(guide, scrollPosition, setScrollPosition);
     setGuide(!guide);
   };
+
   const changeDetailPopUp = (show, message, head) => {
     bodyFixes(false, scrollPosition, setScrollPosition);
     setDetailPopUp({ show: show, message: message, head: head });
   };
+
   const closeDetailPopUp = () => {
     bodyFixes(leaderboard ? false : true, scrollPosition, setScrollPosition);
     setDetailPopUp({ show: false, message: "", head: null });
   };
+
   const changeLeaderPopUp = () => {
     bodyFixes(leaderboard, scrollPosition, setScrollPosition);
     setLeaderBoard(!leaderboard);
   };
 
+  const updateRecordIndex = () => setRecordIndex(recordIndex + 1);
+
+  const updateRecodRefresh = () => setRecordRefresh(!recordRefresh);
+
+  // Effects
   useEffect(() => {
-    // get user info
     try {
       window.phone.getUserInfo(function (userInfo) {
         setUser({
           uid: userInfo.userId > 0 ? userInfo.userId : 0,
-          token: userInfo.token != "" ? userInfo.token : null,
+          token: userInfo.token !== "" ? userInfo.token : null,
         });
       });
     } catch (_error) {
@@ -81,12 +82,9 @@ function UserProvider({ children }) {
     }
   }, []);
 
-  //USER INFORMATION
   useEffect(() => {
-    // user information
     setLoading(true);
     if (user.uid > 0) {
-      // window.alert(user.uid + " " + user.token);
       getCallApi(
         `/api/activity/tile/getUserEventInfo?userId=${user.uid}`,
         "USERINFO"
@@ -102,21 +100,6 @@ function UserProvider({ children }) {
     }
   }, [user, refresh]);
 
-  // USERS RECORDS SEE MORE
-  const [recordIndex, setRecordIndex] = useState(1);
-  const updateRecordIndex = () => {
-    setRecordIndex(recordIndex + 1);
-  };
-  //Records
-  const [records, setRecords] = useState([]);
-
-  //Records Refresh
-  const [recordRefresh, setRecordRefresh] = useState([]);
-
-  const updateRecodRefresh = () => {
-    setRecordRefresh(!recordRefresh);
-  };
-  const [pageCount, setPageCount] = useState(0);
   useEffect(() => {
     if (user.uid > 0) {
       getCallApi(
@@ -137,37 +120,30 @@ function UserProvider({ children }) {
     }
   }, [user, recordIndex, recordRefresh]);
 
+  // Context Provider
   return (
     <UserContext.Provider
       value={{
         user,
         records,
         userInfo,
-
         loading,
         setLoading,
-
         guide,
         changeGuidePopUp,
         leaderboard,
         changeLeaderPopUp,
-
         pageCount,
         recordIndex,
-
         detailPopUp,
         changeDetailPopUp,
         closeDetailPopUp,
-
         alert,
         changeAlertPopUp,
         closeAlertPopUp,
-
         language,
         changeLanguage,
-
         userRefresh,
-
         updateRecordIndex,
         updateRecodRefresh,
       }}
@@ -176,4 +152,5 @@ function UserProvider({ children }) {
     </UserContext.Provider>
   );
 }
+
 export { UserContext, UserProvider };

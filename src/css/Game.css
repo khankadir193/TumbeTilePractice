@@ -436,7 +436,7 @@
 
 .controller .jump-btn {
   z-index: 3;
-  margin-top: 2rem;
+  margin-top: 24rem;
   width: 40%;
   height: 4vh;
   filter: grayscale(0);

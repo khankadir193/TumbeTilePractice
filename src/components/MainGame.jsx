@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import Controller from "./Controller";
 import Game from "./Game";
-import { UserContext } from "../context/UserContext";
+// import { UserContext } from "../context/UserContext.js";
+import { UserContext } from "../context/UserContext.js";
 import mascot_front from "../Header/Front-position.gif";
 import fallMascot from "../Tile-Rest-assests/oops.gif";
 import pointer from "../Tile-Rest-assests/oops.gif";  // this need to change
@@ -15,8 +16,32 @@ import { RankContext } from "../context/RankContext";
 import '../css/Game.css';
 
 export default function MainGame() {
-  const { user, userInfo, userRefresh, updateRecodRefresh, changeAlertPopUp } =
-    useContext(UserContext) || {};
+  // const { user, userInfo, userRefresh, updateRecodRefresh, changeAlertPopUp } =
+  //   useContext(UserContext) || {};
+  const {
+    user,
+    records,
+    userInfo,
+    loading,
+    setLoading,
+    guide,
+    changeGuidePopUp,
+    leaderboard,
+    changeLeaderPopUp,
+    pageCount,
+    recordIndex,
+    detailPopUp,
+    changeDetailPopUp,
+    closeDetailPopUp,
+    alert,
+    changeAlertPopUp,
+    closeAlertPopUp,
+    language,
+    changeLanguage,
+    userRefresh,
+    updateRecordIndex,
+    updateRecodRefresh,
+  } = useContext(UserContext) || {};
   const { tickerTapRefresh } = useContext(RankContext) || {};
   //Controller States
   let num = parseInt(userInfo?.location?.split("_")[0]) || 0;
@@ -42,6 +67,7 @@ export default function MainGame() {
 
   const [inputToast, setInputToast] = useState("");
   const handlePopUp = (action, data, message) => {
+    console.log('handlePopup function calling...',changeAlertPopUp);
     switch (action) {
       case "CONGRATS":
         changeAlertPopUp(
@@ -100,6 +126,7 @@ export default function MainGame() {
         break;
     }
   };
+  
 
   const jump = (jumpGif, left, bottom) => {
     setMascot(jumpGif);
@@ -256,13 +283,14 @@ export default function MainGame() {
   }, [inputToast]);
 
   const startGame = (check) => {
+    console.log('this is the startGame method..',check);
     if (combo) {
       if (!click) {
         setClicked(true);
         if (maxPoint > 0) {
           callingApi(check);
         } else {
-          handlePopUp("POINTS", null, null);
+          handlePopUp("Oops", null, null);
           setClicked(false);
         }
       }
