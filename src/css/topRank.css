@@ -1,0 +1,62 @@
+.rank{
+    font-size: 3vw;
+}
+.rank-1{
+    margin-top: -2vw;
+}
+.rank-2{
+
+}
+.rank3{
+  
+    
+}
+.rank-profile-img{
+    position: relative;
+    top: -2rem;
+    padding: .5rem;
+}
+.rank-frame-img{
+    width: 21vw;
+    position: absolute;
+}
+.rank-frame-avatar{
+    width: 19vw;
+    border-radius: 50%;
+}
+.rank-detail{
+    position: relative;
+    top: -2rem;
+}
+.rank-detail-name{
+
+
+}
+.rank-frame-image{
+    width: 21vw;
+    position: absolute;
+}
+.rank-frame-avatar{
+
+}
+.rank-detail-lvl{
+    width: 10vw;
+    display: block;
+    height: 3vw;
+    display: flex;
+}
+.est{
+    
+}
+.rank-detail-score{
+    display: block;
+}
+
+.rank-detail-score img{
+    width: 2vw;
+}
+
+.rest-frame-img{
+    width: 40%;
+}
+

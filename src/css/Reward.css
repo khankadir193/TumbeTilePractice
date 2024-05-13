@@ -1,0 +1,53 @@
+.reward-container{
+    background-image: url('../Leaderboard/reward-bg.png');
+    /* background: url(../img/backgrounds/infobg.png) center/100% 100% no-repeat; */
+    /* background-size: 100% 100%; */
+    background-size: cover;
+    width: 70vw;
+    height: 20vh; /* because thi scroll issue is occur.  */
+    margin: 0 auto;
+    position: relative;
+    background-repeat: no-repeat;
+    top: 1rem;
+    /* bottom: 7.5rem; */
+    overflow: hidden;
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.daily-overall-container{
+    width: 100%;
+    height: 10vh;
+}
+
+.reward-hourly-daily-overallBtn{
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+    top: -.3rem;
+    z-index: 2;
+}
+
+.reward-hourly-daily-overallBtn button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.left-right-arrow{
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    gap: 10rem;
+}
+
+.left-right-arrow button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+img{
+    width: 100%;
+}

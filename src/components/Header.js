@@ -3,6 +3,7 @@ import '../css/Header.css'
 import guideButton from '../Guide/Guide-button.png';
 import leaderBoardButton from '../Leaderboard/leaderboard-button.png';
 import myJumps from '../Header/myJumps.png';
+import Popup from './Popup';
 
 
 const Header = () => {
@@ -34,7 +35,8 @@ const Header = () => {
                         <img src={leaderBoardButton} alt="myJumps" />
                     </button>
                 </div>
-            </div>
+            </div>      
+            {showPopup && <Popup onClose={togglePopup} popupProps={popupContent} />}
         </div>
     )
 }
