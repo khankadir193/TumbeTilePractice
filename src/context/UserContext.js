@@ -31,7 +31,7 @@ function UserProvider({ children }) {
   const userRefresh = () => setRefresh(!refresh);
 
   const changeAlertPopUp = (show, message, head) => {
-    console.log('show::-',show,'message::-',message,'head::-',head);
+    // console.log('show::-',show,'message::-',message,'head::-',head);
     bodyFixes(false, scrollPosition, setScrollPosition);
     setAlert({ show: show, message: message, head: head });
   };

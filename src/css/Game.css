@@ -245,8 +245,10 @@
 .maingame .mascot {
   z-index: 8;
   position: absolute;
-  width: calc(300 * var(--view));
-  height: calc(300 * var(--view));
+  /* width: calc(300 * var(--view)); */
+  /* height: calc(300 * var(--view)); */
+  width: 70%;
+  height: 45vh;
   object-fit: contain;
   left: 50% !important;
   bottom: -66vw !important;
@@ -272,7 +274,8 @@
 .maingame .mascot-17,
 .maingame .mascot-18 {
   left: 70%;
-  bottom: calc(50 * var(--view));
+  /* bottom: calc(50 * var(--view)); */
+  bottom: 20rem;
 }
 
 .maingame .mascot-19 {

@@ -106,6 +106,7 @@ export default function MainGame() {
   
 
   const jump = (jumpGif, left, bottom) => {
+    console.log('jumpGif..',jumpGif,'left..',left,'bottom..',bottom);
     setMascot(jumpGif);
     setPosition({ left: left, bottom: bottom + 10 });
     setTimeout(() => {
@@ -113,6 +114,7 @@ export default function MainGame() {
     }, 400);
   };
   const calculateJump = (cc, id) => {
+    console.log('cc::-',cc,'id::-',id);
     const [filtered] = moscotPosition.filter((d) => d.id === id);
     if (cc == "right") {
       jump(rightJump, filtered.right, filtered.bottom);
@@ -130,11 +132,13 @@ export default function MainGame() {
       }
     } else {
       let countStart = currentT === 0 ? 1 : 2;
-      let countEnd = combo <= 6 ? combo + 1 : 6;
+      // let countEnd = combo <= 6 ? combo + 1 : 6;  // this combo is coming from api calling or handleInput
+      let cumstomCombo = 0;
+      let countEnd = cumstomCombo <= 6 ? cumstomCombo + 1 : 6;
       const checkLoop = () => {
         if (countStart <= countEnd) {
           calculateJump(
-            combo === 1
+            cumstomCombo === 1
               ? locc
               : Math.round(Math.random()) === 1
               ? "right"
@@ -265,8 +269,9 @@ export default function MainGame() {
       if (!click) {
         setClicked(true);
         if (maxPoint > 0) {
-          callingApi(check);
+          // callingApi(check);
         } else {
+          jumpPos("left")
           handlePopUp("Oops", null, null);
           setClicked(false);
         }
