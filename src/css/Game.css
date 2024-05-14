@@ -251,7 +251,8 @@
   height: 45vh;
   object-fit: contain;
   left: 50% !important;
-  bottom: -66vw !important;
+  /* bottom: -66vw !important; */
+  bottom: -66vw;
   transform: translateX(-50%);
 }
 

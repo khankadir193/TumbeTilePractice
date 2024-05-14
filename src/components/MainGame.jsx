@@ -38,7 +38,7 @@ export default function MainGame() {
   const [choice, setChoice] = useState(0);
   const [gear, setGear] = useState("manual");
   const [broken, setBroken] = useState(false);
-  const [position, setPosition] = useState({ left: 50, bottom: -20 });
+  const [position, setPosition] = useState({ left: 50, bottom: -65 });
 
   let maxPoint = parseInt(userInfo?.gamePoints / 25000) || 0;
 
@@ -106,7 +106,8 @@ export default function MainGame() {
   
 
   const jump = (jumpGif, left, bottom) => {
-    console.log('jumpGif..',jumpGif,'left..',left,'bottom..',bottom);
+    // console.log('jumpGif..',jumpGif,'left..',left,'bottom..',bottom);
+    console.log('{ left: left, bottom: bottom + 10 }',{ left: left, bottom: bottom + 10 });
     setMascot(jumpGif);
     setPosition({ left: left, bottom: bottom + 10 });
     setTimeout(() => {
@@ -116,6 +117,8 @@ export default function MainGame() {
   const calculateJump = (cc, id) => {
     console.log('cc::-',cc,'id::-',id);
     const [filtered] = moscotPosition.filter((d) => d.id === id);
+    console.log('filtered...calculateJump....',filtered);
+    // console.log('position')
     if (cc == "right") {
       jump(rightJump, filtered.right, filtered.bottom);
     } else {
@@ -133,7 +136,7 @@ export default function MainGame() {
     } else {
       let countStart = currentT === 0 ? 1 : 2;
       // let countEnd = combo <= 6 ? combo + 1 : 6;  // this combo is coming from api calling or handleInput
-      let cumstomCombo = 0;
+      let cumstomCombo = 6;
       let countEnd = cumstomCombo <= 6 ? cumstomCombo + 1 : 6;
       const checkLoop = () => {
         if (countStart <= countEnd) {
@@ -271,7 +274,7 @@ export default function MainGame() {
         if (maxPoint > 0) {
           // callingApi(check);
         } else {
-          jumpPos("left")
+          jumpPos("right")
           handlePopUp("Oops", null, null);
           setClicked(false);
         }
@@ -282,7 +285,7 @@ export default function MainGame() {
   };
   useEffect(() => {
     if (currentT === 0) {
-      setPosition({ left: 50, bottom: -20 });
+      setPosition({ left: 50, bottom: -65 });
     } else {
       setPosition({ left: loc === "L" ? 20 : 75, bottom: 7 });
     }

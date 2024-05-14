@@ -570,20 +570,20 @@ export const moscotPosition = [
   {
     id: 1,
     right: 75,
-    left: 20,
-    bottom: 7,
+    left: 30,
+    bottom: -50,
   },
   {
     id: 2,
     right: 68,
     left: 30,
-    bottom: 26,
+    bottom: -40,
   },
   {
     id: 3,
     right: 66,
-    left: 35,
-    bottom: 38,
+    left: 30,
+    bottom: -30,
   },
   {
     id: 4,
