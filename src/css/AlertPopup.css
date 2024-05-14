@@ -1,0 +1,46 @@
+.popup2 .alert-pop {
+    height: 60vw;
+    position: relative;
+    width: 100vw;
+}
+
+.popup2, .popup2-2section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup2 .alert-pop-message {
+    align-items: center;
+    display: flex;
+    height: 45.33333vw;
+    justify-content: center;
+    margin-top: 4vw;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-top: 2.66667vw;
+    width: 58.66667vw;
+}
+
+response {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: .66667vw;
+    justify-content: center;
+}
+
+.popup2 .alert-pop-head {
+    display: block;
+    height: 28vw;
+    object-fit: contain;
+    object-position: center;
+    width: 100vw;
+    z-index: 2;
+}
+
+.popup2, .popup2-2section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
