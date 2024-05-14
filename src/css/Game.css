@@ -247,10 +247,10 @@
   position: absolute;
   /* width: calc(300 * var(--view)); */
   /* height: calc(300 * var(--view)); */
-  width: 70%;
-  height: 45vh;
+  width: 35%;
+  height: 25vh;
   object-fit: contain;
-  left: 50% !important;
+  /* left: 50% !important; */
   /* bottom: -66vw !important; */
   bottom: -66vw;
   transform: translateX(-50%);

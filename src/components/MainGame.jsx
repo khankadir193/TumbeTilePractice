@@ -116,13 +116,13 @@ export default function MainGame() {
   };
   const calculateJump = (cc, id) => {
     console.log('cc::-',cc,'id::-',id);
-    const [filtered] = moscotPosition.filter((d) => d.id === id);
+    const [ filtered ] = moscotPosition.length > 0 ? moscotPosition.filter((d) => d.id === id) : null;
     console.log('filtered...calculateJump....',filtered);
     // console.log('position')
     if (cc == "right") {
-      jump(rightJump, filtered.right, filtered.bottom);
+      jump(rightJump, filtered?.right, filtered?.bottom);
     } else {
-      jump(leftJump, filtered.left, filtered.bottom);
+      jump(leftJump, filtered?.left, filtered?.bottom);
     }
   };
   const jumpPos = (locc) => {
@@ -267,7 +267,7 @@ export default function MainGame() {
   }, [inputToast]);
 
   const startGame = (check) => {
-    console.log('this is the startGame method..',check);
+    // console.log('this is the startGame method..',check);
     if (combo) {
       if (!click) {
         setClicked(true);
