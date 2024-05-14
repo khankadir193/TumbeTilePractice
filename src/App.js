@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import MainGame from "./components/MainGame";
+import Popups from "./components/Popups";
 // import Marquee from "./components/Marquee";
 // import PopUps from "./components/PopUps";
 
@@ -14,6 +15,7 @@ function App() {
       {/* <PopUps /> */}
       <MainGame />
       <Header />
+      {/* <Popups /> */}
     </div>
   );
 }

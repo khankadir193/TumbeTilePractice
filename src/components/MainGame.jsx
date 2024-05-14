@@ -16,32 +16,9 @@ import { RankContext } from "../context/RankContext";
 import '../css/Game.css';
 
 export default function MainGame() {
-  // const { user, userInfo, userRefresh, updateRecodRefresh, changeAlertPopUp } =
-  //   useContext(UserContext) || {};
-  const {
-    user,
-    records,
-    userInfo,
-    loading,
-    setLoading,
-    guide,
-    changeGuidePopUp,
-    leaderboard,
-    changeLeaderPopUp,
-    pageCount,
-    recordIndex,
-    detailPopUp,
-    changeDetailPopUp,
-    closeDetailPopUp,
-    alert,
-    changeAlertPopUp,
-    closeAlertPopUp,
-    language,
-    changeLanguage,
-    userRefresh,
-    updateRecordIndex,
-    updateRecodRefresh,
-  } = useContext(UserContext) || {};
+  const { user, userInfo, userRefresh, updateRecodRefresh, changeAlertPopUp } =
+    useContext(UserContext) || {};
+  
   const { tickerTapRefresh } = useContext(RankContext) || {};
   //Controller States
   let num = parseInt(userInfo?.location?.split("_")[0]) || 0;

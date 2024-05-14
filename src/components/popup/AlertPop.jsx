@@ -1,12 +1,12 @@
 import React from "react";
 import close_btn from "../../Leaderboard/close-button.png";
 import hurry from "../../Tile-Rest-assests/excellent.png";
-import oh_oo from "../../assests/whoop.png";
+// import oh_oo from "../../assests/whoop.png";
 import oops from "../../Tile-Rest-assests/oops.png";
 import yesMacot from "../../Tile-Rest-assests/oops.gif";
 import noMascot from "../../Tile-Rest-assests/default.png";
 import exalert_bg from "../../Tile-Rest-assests/reward history bg.png";
-import alert_bg from "../../Tile-Rest-assests/reward history.png";
+import alert_bg from "../../Tile-Rest-assests/alert-pop-bg.png";
 import '../../css/AlertPopup.css'
 
 export default function AlertPop({ popup, close }) {
@@ -19,7 +19,7 @@ export default function AlertPop({ popup, close }) {
     mascot = yesMacot;
     popbg = exalert_bg;
   } else if (popup.head === "ohoo") {
-    title = oh_oo;
+    // title = oh_oo;
     mascot = noMascot;
     popbg = alert_bg;
   } else {
