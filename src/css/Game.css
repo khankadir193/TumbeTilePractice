@@ -452,11 +452,13 @@
 
 /* mascot moving position */
 .boy {
-  /* background: url(../src/img/Front-position.gif) no-repeat; */
-  /* background-size: 100% auto; */
-  /* width: 29vw; */
-  /* height: 52vw; */
-  position: relative;
+  z-index: 8;
+  position: absolute;
+  width: 35%;
+  height: 25vh;
+  object-fit: contain;
+  bottom: -66vw;
+  transform: translateX(-50%);
   animation-name: example;
   animation-duration: 5s;
   animation-timing-function: linear;
@@ -464,6 +466,11 @@
 }
 
 @keyframes example {
+  0%   { bottom: -65vw; left: 41vw; }
+  100% { left: -60vw; top: 45vw; }
+}
+
+@keyframes example1 {
   0%   { left: 20px; top: 0px; }
   100% { left: 100px; top: 0px; }
 }

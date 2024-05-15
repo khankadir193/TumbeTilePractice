@@ -11,7 +11,7 @@ import { checkShowData } from "../utilities/helper";
 
 import leftJump from "../Header/left-jump.gif";
 import rightJump from "../Header/right-jump.gif";
-import { moscotPosition } from "../raw/users/rewards";
+import { manualPosition, moscotPosition } from "../raw/users/rewards";
 import { RankContext } from "../context/RankContext";
 import '../css/Game.css';
 
@@ -44,7 +44,6 @@ export default function MainGame() {
 
   const [inputToast, setInputToast] = useState("");
   const handlePopUp = (action, data, message) => {
-    console.log('handlePopup function calling...',changeAlertPopUp);
     switch (action) {
       case "CONGRATS":
         changeAlertPopUp(
@@ -115,15 +114,24 @@ export default function MainGame() {
     }, 400);
   };
   const calculateJump = (cc, id) => {
-    console.log('cc::-',cc,'id::-',id);
-    const [ filtered ] = moscotPosition.length > 0 ? moscotPosition.filter((d) => d.id === id) : null;
-    console.log('filtered...calculateJump....',filtered);
-    // console.log('position')
-    if (cc == "right") {
-      jump(rightJump, filtered?.right, filtered?.bottom);
-    } else {
-      jump(leftJump, filtered?.left, filtered?.bottom);
+    if(gear === "manual"){
+      const [ manualData ] = manualPosition.length > 0 ? manualPosition.filter((d) => d.id === id) : null;
+      if (cc == "right") {
+        jump(rightJump, manualData.right, manualData.bottom);
+      } else {
+        jump(leftJump, manualData.left, manualData.bottom);
+      }
+    }else{
+      const [ filtered ] = moscotPosition.length > 0 ? moscotPosition.filter((d) => d.id === id) : null;
+      console.log('filtered...calculateJump....',filtered);
+      // console.log('position')
+      if (cc == "right") {
+        jump(rightJump, filtered?.right, filtered?.bottom);
+      } else {
+        jump(leftJump, filtered?.left, filtered?.bottom);
+      }
     }
+    
   };
   const jumpPos = (locc) => {
     console.log('combo...???',combo);
@@ -158,105 +166,6 @@ export default function MainGame() {
       checkLoop();
     }
   };
-  const callingApi = (check) => {
-    console.log(choice, check);
-    var newHead = new Headers();
-    newHead.append("userId", user.uid);
-    newHead.append("token", user.token);
-    postCallApi(
-      `/api/activity/tile/playGame?type=${
-        gear === "auto" ? 1 : 0
-      }&playCount=${combo}&location=${check === "left" ? "L" : "R"}`,
-      newHead,
-      "DOESNTMATTER",
-      null
-    )
-      .then((res) => {
-        let errorCode = res.errorCode;
-        let message = res.msg || res.message;
-        if (errorCode === 0) {
-          let data = res.data;
-          let lose = res?.data?.loseCount;
-          let win = res?.data?.winCount;
-          let locc =
-            res?.data?.location == "R"
-              ? "right"
-              : res?.data?.location == "L"
-              ? "left"
-              : null;
-          let newLoc = locc ? locc : check;
-          jumpPos(locc ? locc : check);
-          if (lose > win) {
-            setTimeout(
-              () => {
-                setBroken(true);
-                setMascot(fallMascot);
-                setTimeout(() => {
-                  handlePopUp("Oops", null, null);
-                  setMascot(mascot_front);
-                  setPosition({ left: newLoc === "left" ? 20 : 75, bottom: 7 });
-                  setCombo(1);
-                  setChoice(0);
-                  setClicked(false);
-                  setBroken(false);
-                  updateRecodRefresh();
-                  userRefresh();
-                  tickerTapRefresh();
-                }, 600);
-              },
-              gear === "manual"
-                ? 1400
-                : combo === 1
-                ? 1200
-                : combo === 2
-                ? 1600
-                : combo === 3
-                ? 2000
-                : 2500
-            );
-          } else {
-            setTimeout(
-              () => {
-                handlePopUp("CONGRATS", data, null);
-                setMascot(mascot_front);
-                setPosition({ left: newLoc === "left" ? 20 : 75, bottom: 7 });
-                setCurrentTile(currentTile + 1);
-                setCombo(1);
-                setChoice(0);
-                setClicked(false);
-                updateRecodRefresh();
-                userRefresh();
-              },
-              gear === "manual"
-                ? 1400
-                : combo === 1
-                ? 1200
-                : combo === 2
-                ? 1600
-                : combo === 3
-                ? 2000
-                : 2500
-            );
-          }
-        } else if (errorCode === 10000004) {
-          handlePopUp("POINTS", null, null);
-          setChoice(0);
-          setCombo(1);
-          setClicked(false);
-        } else {
-          handlePopUp(null, null, message);
-          setChoice(0);
-          setCombo(1);
-          setClicked(false);
-        }
-      })
-      .catch((err) => {
-        setChoice(0);
-        setCombo(1);
-        setClicked(false);
-        console.log(err);
-      });
-  };
 
   useEffect(() => {
     setChoice(0);
@@ -284,13 +193,13 @@ export default function MainGame() {
       setInputToast("please enter the number of chances.");
     }
   };
-  useEffect(() => {
-    if (currentT === 0) {
-      setPosition({ left: 50, bottom: -65 });
-    } else {
-      setPosition({ left: loc === "L" ? 20 : 75, bottom: 7 });
-    }
-  }, [userInfo]);
+  // useEffect(() => {
+  //   if (currentT === 0) {
+  //     setPosition({ left: 50, bottom: -65 });
+  //   } else {
+  //     setPosition({ left: loc === "L" ? 20 : 75, bottom: 7 });
+  //   }
+  // }, [userInfo]);
 
   const handleInput = (event) => {
     let max = maxPoint > 99 ? 99 : maxPoint;

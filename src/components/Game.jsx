@@ -13,6 +13,7 @@ export default function Game({
   gear,
   loc,
 }) {
+  console.log('click...?????kadir',click);
   // Calculate the width and height of the tiles
   const calculateWidthAndHeight = (index, ct, initialWidth, initialHeight) => {
     // Calculate the distance from the current tile to the object
@@ -49,9 +50,11 @@ export default function Game({
         style={{
           left: `${position.left}vw`,
           bottom: `${position.bottom}vw`,
-          transition: click ? `all ${gear === "manual" ? 0.4 : 0.2}s cubic-bezier(0, 0.3, 1, 0.7)` : "none",
+          // transition: click ? `all ${gear === "manual" ? 0.4 : 0.2}s cubic-bezier(0, 0.3, 1, 0.7)` : "none",
+
         }}
         id="mascot"
+        // className={click ? 'boy' : 'mascot'}
         className={broken ? "mascot fall" : "mascot"}
         src={mascot}
         alt=""

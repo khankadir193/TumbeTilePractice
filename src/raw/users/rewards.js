@@ -605,3 +605,11 @@ export const moscotPosition = [
   },
 ];
 
+export const manualPosition = [
+  {
+    id: 1,
+    left: 85,
+    bottom: -37,
+  }
+];
+
