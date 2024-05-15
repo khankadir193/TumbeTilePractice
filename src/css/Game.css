@@ -449,3 +449,22 @@
 .controller .unactive {
   filter: grayscale(1);
 }
+
+/* mascot moving position */
+.boy {
+  /* background: url(../src/img/Front-position.gif) no-repeat; */
+  /* background-size: 100% auto; */
+  /* width: 29vw; */
+  /* height: 52vw; */
+  position: relative;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+}
+
+@keyframes example {
+  0%   { left: 20px; top: 0px; }
+  100% { left: 100px; top: 0px; }
+}
+

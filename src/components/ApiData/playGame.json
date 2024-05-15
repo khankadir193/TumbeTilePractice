@@ -1,0 +1,18 @@
+{
+    "errorCode": 0,
+    "msg": "success",
+    "data": {
+        "bikeCount": 0,
+        "carCount": 1,
+        "rewardContent": "Gold Luxury Entrance x 4 days",
+        "beansConsumed": 2,
+        "rewardDTOList": [
+            {
+                "type": 4,
+                "id": 1650,
+                "count": 4,
+                "desc": "Gold Luxury Entrance"
+            }
+        ]
+    }
+}

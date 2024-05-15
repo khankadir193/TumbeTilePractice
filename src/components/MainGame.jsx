@@ -126,6 +126,7 @@ export default function MainGame() {
     }
   };
   const jumpPos = (locc) => {
+    console.log('combo...???',combo);
     console.log(locc);
     if (gear === "manual") {
       if (currentT === 0) {
@@ -135,13 +136,13 @@ export default function MainGame() {
       }
     } else {
       let countStart = currentT === 0 ? 1 : 2;
-      // let countEnd = combo <= 6 ? combo + 1 : 6;  // this combo is coming from api calling or handleInput
-      let cumstomCombo = 6;
-      let countEnd = cumstomCombo <= 6 ? cumstomCombo + 1 : 6;
+      let countEnd = combo <= 6 ? combo + 1 : 6;  // this combo is coming from api calling or handleInput
+      // let cumstomCombo = 6;
+      // let countEnd = cumstomCombo <= 6 ? cumstomCombo + 1 : 6;
       const checkLoop = () => {
         if (countStart <= countEnd) {
           calculateJump(
-            cumstomCombo === 1
+            combo === 1
               ? locc
               : Math.round(Math.random()) === 1
               ? "right"
@@ -274,7 +275,7 @@ export default function MainGame() {
         if (maxPoint > 0) {
           // callingApi(check);
         } else {
-          jumpPos("right")
+          jumpPos("right");
           handlePopUp("Oops", null, null);
           setClicked(false);
         }
