@@ -65,17 +65,17 @@ export const getCallApi = async (key, whatData, myHeaders) => {
 
 export const postCallApi = async (query, myHeaders, checkPlay, myRaw) => {
   let resData;
-  switch (checkPlay) {
-    case "DRAW":
-      resData = drawGame(1, 14);
-      break;
-    case "WHEEL":
-      resData = wheelGame(0, 6);
-      break;
-    case "VIPWHEEL":
-      resData = wheelGame(7, 13);
-      break;
-  }
+  // switch (checkPlay) {
+  //   case "DRAW":
+  //     resData = drawGame(1, 14);
+  //     break;
+  //   case "WHEEL":
+  //     resData = wheelGame(0, 6);
+  //     break;
+  //   case "VIPWHEEL":
+  //     resData = wheelGame(7, 13);
+  //     break;
+  // }
   if (enviroment === 1) {
     return resData;
   } else {

@@ -18,7 +18,7 @@ import '../css/Game.css';
 export default function MainGame() {
   const { user, userInfo, userRefresh, updateRecodRefresh, changeAlertPopUp } =
     useContext(UserContext) || {};
-  
+
   const { tickerTapRefresh } = useContext(RankContext) || {};
   //Controller States
   let num = parseInt(userInfo?.location?.split("_")[0]) || 0;
@@ -102,11 +102,11 @@ export default function MainGame() {
         break;
     }
   };
-  
+
 
   const jump = (jumpGif, left, bottom) => {
     // console.log('jumpGif..',jumpGif,'left..',left,'bottom..',bottom);
-    console.log('{ left: left, bottom: bottom + 10 }',{ left: left, bottom: bottom + 10 });
+    console.log('{ left: left, bottom: bottom + 10 }', { left: left, bottom: bottom + 10 });
     setMascot(jumpGif);
     setPosition({ left: left, bottom: bottom + 10 });
     setTimeout(() => {
@@ -114,16 +114,16 @@ export default function MainGame() {
     }, 400);
   };
   const calculateJump = (cc, id) => {
-    if(gear === "manual"){
-      const [ manualData ] = manualPosition.length > 0 ? manualPosition.filter((d) => d.id === id) : null;
+    if (gear === "manual") {
+      const [manualData] = manualPosition.length > 0 ? manualPosition.filter((d) => d.id === id) : null;
       if (cc == "right") {
         jump(rightJump, manualData.right, manualData.bottom);
       } else {
         jump(leftJump, manualData.left, manualData.bottom);
       }
-    }else{
-      const [ filtered ] = moscotPosition.length > 0 ? moscotPosition.filter((d) => d.id === id) : null;
-      console.log('filtered...calculateJump....',filtered);
+    } else {
+      const [filtered] = moscotPosition.length > 0 ? moscotPosition.filter((d) => d.id === id) : null;
+      console.log('filtered...calculateJump....', filtered);
       // console.log('position')
       if (cc == "right") {
         jump(rightJump, filtered?.right, filtered?.bottom);
@@ -131,10 +131,10 @@ export default function MainGame() {
         jump(leftJump, filtered?.left, filtered?.bottom);
       }
     }
-    
+
   };
   const jumpPos = (locc) => {
-    console.log('combo...???',combo);
+    console.log('combo...???', combo);
     console.log(locc);
     if (gear === "manual") {
       if (currentT === 0) {
@@ -153,8 +153,8 @@ export default function MainGame() {
             combo === 1
               ? locc
               : Math.round(Math.random()) === 1
-              ? "right"
-              : "left",
+                ? "right"
+                : "left",
             countStart
           );
           setTimeout(() => {
@@ -193,6 +193,18 @@ export default function MainGame() {
       setInputToast("please enter the number of chances.");
     }
   };
+  const callingApi = async() => {
+    try {
+      const response = await fetch('https://www.streamkar.net/api/activity/eidF/getLeaderboardInfoV2?eventDesc=20240422_tile&rankIndex=12&pageNum=1&pageSize=20');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const response2 = await response.json();
+      console.log("response2222...???", response2.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
   // useEffect(() => {
   //   if (currentT === 0) {
   //     setPosition({ left: 50, bottom: -65 });
