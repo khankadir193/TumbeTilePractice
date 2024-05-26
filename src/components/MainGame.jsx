@@ -205,6 +205,19 @@ export default function MainGame() {
       console.error('Error fetching data:', error);
     }
   }
+
+  const callingApiForUser = async() => {
+    try {
+      const response = await fetch('http://test.streamkar.tv/api/activity/eidF/getWinnerRankInfo?eventDesc=20240422_tile&rankIndex=1&pageNum=1&pageSize=10');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const response2 = await response.json();
+      console.log("response2222...???", response2.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
   // useEffect(() => {
   //   if (currentT === 0) {
   //     setPosition({ left: 50, bottom: -65 });
